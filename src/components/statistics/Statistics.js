@@ -1,4 +1,8 @@
-export const Statistics = ({ items, countTotal, countPositivFeedback }) => {
+export const Statistics = ({
+  items,
+  countTotal = 0,
+  countPositivFeedback = 0,
+}) => {
   return (
     <div>
       <p>Good: {items.good}</p>
