@@ -1,20 +1,11 @@
-export const Statistics = (
-  {
-    // countGood,
-    // countNeutral,
-    // countBad,
-    // countTotal,
-    // countPositivFeedback,
-  }
-) => {
+export const Statistics = ({ items, countTotal, countPositivFeedback }) => {
   return (
     <div>
-      <p>Ha</p>
-      {/* <p>Good: {countGood}</p>
-      <p>Neutral: {countNeutral}</p>
-      <p>Bad: {countBad}</p>
+      <p>Good: {items.good}</p>
+      <p>Neutral: {items.neutral}</p>
+      <p>Bad: {items.bad}</p>
       <p>Total: {countTotal}</p>
-      <p>Positive feedback: {countPositivFeedback} %</p> */}
+      <p>Positive feedback: {countPositivFeedback} %</p>
     </div>
   );
 };

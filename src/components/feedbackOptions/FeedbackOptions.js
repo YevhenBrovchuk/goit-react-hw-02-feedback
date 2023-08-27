@@ -1,15 +1,16 @@
 import { FeedbackOptionsBtn } from 'components/feedbackOptionsBtn.js/FeedbackOptionsBtn';
+import { Ul } from './FeedbackOptions.styled';
 
 export const FeedbackOptions = ({ options, onAddState }) => {
   return (
     <div>
-      <ul>
+      <Ul>
         {options.map(item => (
           <li key={item}>
             <FeedbackOptionsBtn btnName={item} btnState={onAddState} />
           </li>
         ))}
-      </ul>
+      </Ul>
       {/* <button>Hello</button> */}
       {/* <button onClick={() => onGood()}>Good</button>
       <button onClick={() => onNeutral()}>Neutral</button>

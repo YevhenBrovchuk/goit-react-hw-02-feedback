@@ -2,6 +2,7 @@ import { Component } from 'react';
 import { Section } from './section/Section';
 import { FeedbackOptions } from './feedbackOptions/FeedbackOptions';
 import { Statistics } from './statistics/Statistics';
+import { Notification } from './notification/Notification';
 
 export class App extends Component {
   state = {
@@ -17,8 +18,15 @@ export class App extends Component {
     }));
   };
 
+  countTotalFeedback() {
+    return this.state.good + this.state.neutral + this.state.bad;
+  }
+
+  countPositiveFeedbackPercentage() {
+    return Math.trunc((this.state.good / this.countTotalFeedback()) * 100);
+  }
+
   render() {
-    console.log(Object.keys(this.state));
     return (
       <div
         style={{
@@ -35,11 +43,18 @@ export class App extends Component {
             options={Object.keys(this.state)}
             onAddState={this.addState}
           />
-          <Statistics />
+          <h3>Statistics</h3>
+          {this.countTotalFeedback() > 0 ? (
+            <Statistics
+              items={this.state}
+              countTotal={this.countTotalFeedback()}
+              countPositivFeedback={this.countPositiveFeedbackPercentage()}
+            />
+          ) : (
+            <Notification />
+          )}
         </Section>
       </div>
     );
   }
 }
-
-///import styled from 'styled-components'

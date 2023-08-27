@@ -1,3 +1,5 @@
+import { Button } from './FeedbackOptionsBtn.styled';
+
 export const FeedbackOptionsBtn = ({ btnName, btnState }) => {
-  return <button onClick={() => btnState(btnName)}>{btnName}</button>;
+  return <Button onClick={() => btnState(btnName)}>{btnName}</Button>;
 };
