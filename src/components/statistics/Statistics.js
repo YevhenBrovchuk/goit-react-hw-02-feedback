@@ -1,5 +1,5 @@
 export const Statistics = ({
-  items,
+  items = 0,
   countTotal = 0,
   countPositivFeedback = 0,
 }) => {
