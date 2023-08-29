@@ -12,14 +12,15 @@ export class App extends Component {
   };
 
   addState = nameBtn => {
-    const nameSatetKey = Object.keys(this.state).filter(key => key === nameBtn);
     this.setState(prevState => ({
-      [nameSatetKey]: prevState[nameSatetKey] + 1,
+      [nameBtn]: prevState[nameBtn] + 1,
     }));
   };
 
   countTotalFeedback() {
-    return this.state.good + this.state.neutral + this.state.bad;
+    return Object.values(this.state).reduce((previousValue, number) => {
+      return previousValue + number;
+    }, 0);
   }
 
   countPositiveFeedbackPercentage() {
